@@ -1,0 +1,26 @@
+<!doctype html>
+<html> 
+<body> 
+<h1>Mother Information</h1>
+
+  <form action="" method="post"> 
+    <d1>
+      <table>
+        <tr>
+          <td>Height:
+          <td><input type=text name=height value="{{request.form.height}}" 
+              placeholder="{{height['value']}}">
+          <td>{{height['unit']}}
+        </tr>
+        <tr>
+          <td>Weight:
+          <td><input type=text name=weight value="{{request.form.weight}}" 
+              placeholder="{{weight['value']}}">
+          <td>{{weight['unit']}}
+        </tr>
+      </table>
+	</d1>
+    <p><input type="submit" value="Save & Next" ></p> 
+  </form> 
+</body> 
+</html> 
