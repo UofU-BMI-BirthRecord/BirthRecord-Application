@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+   <body>
+   
+      <h2 style = "text-align: center;">  </h2>
+
+      <form action = "http://localhost:5000/motherinfo/{{form.motherid}}" method = post>
+         <fieldset>
+            <legend>New Born Baby</legend>
+            {{ form.hidden_tag() }}
+            
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+
+               {{ form.labels['newborn_family_name_label'] }}
+               {{ form.newborn_family_name_value }}
+               <br>
+               {{ form.labels['newborn_first_name_label'] }}
+               {{ form.newborn_first_name_value }}
+               <br>
+               {{ form.labels['birth_weight_label'] }}
+               {{ form.birth_weight_grams_value }}
+               {{ form.labels['birth_weight_grams_label'] }}
+               {{ form.birth_weight_lbs_value }}
+               {{ form.labels['birth_weight_lbs_label'] }}
+               {{ form.birth_weight_ozs_value }}
+               {{ form.labels['birth_weight_ozs_label'] }}
+               <br>
+               {{ form.labels['apgar1m_score_label'] }}
+               {{ form.apgar1m_score_value }}
+               <br>
+               {{ form.labels['apgar5m_score_label'] }}
+               {{ form.apgar5m_score_value }}
+               <br>
+               {{ form.labels['apgar10m_score_label'] }}
+               {{ form.apgar10m_score_value }}
+               <br>
+
+               {{ form.submit }}
+            </div>
+            
+         </fieldset>
+      </form>
+      
+   </body>
+</html>

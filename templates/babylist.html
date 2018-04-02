@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Born Babies</title>
+</head>
+<body>
+  <h2 style = 'text-align: center'>New Babies Born within {{bornWithinDays}} Days</h2>
+  <table>
+    <tr>
+      <th>Last Name, First Name</th>
+      <th>BirthDate</th>
+    </tr>
+    {% for baby in babies %}
+      <tr>
+        <td>
+          <a href=../baby/{{baby.id}}>{{baby.name[0].family}}, {{baby.name[0].given[0]}}</a>
+        </td>
+        <td>
+          {{baby.birthDate.date}}
+        </td>
+      </tr>
+    {% endfor %}
+
+  </table>
+
+
+</body>
+</html>
