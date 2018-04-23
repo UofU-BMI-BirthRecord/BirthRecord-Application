@@ -137,8 +137,11 @@ def getPatientMedical(pid, server=smart.server, codes=CODETABLE):
     medInfo = {}
     search = p.Patient.where(struct={'_id': pid})
     patients = search.perform_resources(server)
-    if len(patients) != 1:
+    if len(patients) > 1:
         print("Too many patients")
+    if len(patients) < 1:
+        print("no patient!")
+        return (None, medInfo)
     pt = patients[0]
     search = ob.Observation.where(struct={'subject': pid})
     conditions = search.perform_resources(smart.server)

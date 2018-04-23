@@ -1,0 +1,34 @@
+name	desc	resource	system	code	page	datatype	UDOH_variable
+newborn_family_name	Baby Family Name				baby	string	UDOH_newborn_family_name
+newborn_first_name	Baby First Name				baby	string	UDOH_newborn_first_name
+apgar10m_score	APGAR 10 Minute	obs	http://loinc.org	9271-8	baby	int	UDOH_apgar10m_score
+apgar5m_score	APGAR 5 Minute	obs	http://loinc.org	9274-2	baby	int	UDOH_apgar5m_score
+apgar1m_score	APGAR 1 Minute	obs	http://loinc.org	9272-6	baby	int	UDOH_apgar1m_score
+birth_weight	Birth weight	obs	http://loinc.org	8339-4	baby	int	UDOH_birth_weight
+birth_weight_grams	grams	obs			baby	int	UDOH_birth_weight_grams
+birth_weight_lbs	lbs	obs			baby	int	UDOH_birth_weight_lbs
+birth_weight_ozs	oz	obs			baby	int	UDOH_birth_weight_ozs
+							
+mother_family_name	Mother Family Name				mother	string	UDOH_mother_family_name
+mother_first_name	Mother First Name				mother	string	UDOH_mother_first_name
+							
+pre_weight	Pre pregnancy weight	obs	http://loinc.org	8348-5	mother	int	UDOH_pre_weight
+pre_weight_grams	grams	obs			mother	int	UDOH_pre_weight_grams
+pre_weight_lbs	lbs	obs			mother	int	UDOH_pre_weight_lbs
+pre_weight_ozs	oz	obs			mother	int	UDOH_pre_weight_ozs
+delivery_weight	Delivery weight	obs	http://loinc.org	68494-4	mother	int	UDOH_delivery_weight
+delivery_weight_grams	grams	obs			mother	int	UDOH_delivery_weight_grams
+delivery_weight_lbs	lbs	obs			mother	int	UDOH_delivery_weight_lbs
+delivery_weight_ozs	oz	obs			mother	int	UDOH_delivery_weight_ozs
+							
+weight_gain	Weight gain	calculated			mother	int	UDOH_weight_gain
+weight_gain_grams	grams	calculated			mother	int	UDOH_weight_gain_grams
+weight_gain_lbs	lbs	calculated			mother	int	UDOH_weight_gain_lbs
+weight_gain_ozs	oz	calculated			mother	int	UDOH_weight_gain_ozs
+							
+pre_hypertension	Prepregnancy hypertension	condition	http://snomed.info/sct	86041002	mother	boolean	UDOH_pre_hypertension
+gestational_hypertension	Gestational (PIH preeclampsia)	condition	http://snomed.info/sct	398254007	mother	boolean	UDOH_gestational_hypertension
+eclampsia	Eclampsia	condition	http://snomed.info/sct	237283007	mother	boolean	UDOH_eclampsia
+							
+pre_diabetes	Prepregnancy diabetes	condition	http://snomed.info/sct	609563008	mother	boolean	UDOH_pre_diabetes
+gestational_diabetes	Gestational diabetes	condition	http://snomed.info/sct	11687002	mother	boolean	UDOH_gestationa_diabetes

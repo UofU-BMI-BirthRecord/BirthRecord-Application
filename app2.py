@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, flash
 from SelectBabyForm import SelectBabyForm
 from BabyForm import BabyForm
 
+import json
+
 app = Flask(__name__)
 app.secret_key = 'development key'
 
@@ -37,7 +39,16 @@ def motherinfo(pid):
 
 
 
-@app.route('/baby/<id>', methods = ['GET', 'POST'])
+@app.route('/babyresult', methods=['GET', 'POST'])
+def babyResult():
+    if request.method == 'POST':
+        babyInformation = json.dumps(request.form)
+        print("Dumpint baby info")
+        print(babyInformation)
+        return render_template('motherinfo.html')
+
+
+@app.route('/baby/<id>', methods=['GET', 'POST'])
 def babyInfo(id):
     form = BabyForm()
 
@@ -57,6 +68,8 @@ def babyInfo(id):
 
             return render_template('blank.html', baby=id)
     if request.method == "POST":
+        print("Dumping form")
+        json.dumps(form)
         return render_template('index.html', baby=id)
 
 

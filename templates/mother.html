@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+   <body>
+   
+      <h2 style = "text-align: center;">  </h2>
+
+      <form action = "http://localhost:5000/motherresult" method = post>
+         <fieldset>
+            <legend>Mother</legend>
+            {{ form.hidden_tag() }}
+            
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+
+               {{ form.mother_family_name.label }}
+               {{ form.mother_family_name }}
+               <br>
+               {{ form.mother_first_name.label }}
+               {{ form.mother_first_name }}
+               <br>
+               {{ form.pre_weight.label}}
+               {{ form.pre_weight_grams}}
+               {{ form.pre_weight_grams.label}}
+               &emsp;
+               {{ form.pre_weight_lbs}}
+               {{ form.pre_weight_lbs.label}}
+               &emsp;
+               {{ form.pre_weight_ozs}}
+               {{ form.pre_weight_ozs.label}}
+               <br>
+               {{ form.delivery_weight.label}}
+               {{ form.delivery_weight_grams}}
+               {{ form.delivery_weight_grams.label}}
+               &emsp;
+               {{ form.delivery_weight_lbs}}
+               {{ form.delivery_weight_lbs.label}}
+               &emsp;
+               {{ form.delivery_weight_ozs}}
+               {{ form.delivery_weight_ozs.label}}
+               <br>
+               {{ form.weight_gain.label}}
+               {{ form.weight_gain_grams}}
+               {{ form.weight_gain_grams.label}}
+               &emsp;
+               {{ form.weight_gain_lbs}}
+               {{ form.weight_gain_lbs.label}}
+               &emsp;
+               {{ form.weight_gain_ozs}}
+               {{ form.weight_gain_ozs.label}}
+               <br>
+               Hypertension
+
+               {{ form.pre_hypertension}}
+               {{ form.pre_hypertension.label}}
+               &emsp;
+               {{ form.gestational_hypertension}}
+               {{ form.gestational_hypertension.label}}
+               &emsp;
+               {{ form.eclampsia }}
+               {{ form.eclampsia.label }}
+
+               <br>
+               Diabetes
+
+               {{ form.pre_diabetes }}
+               {{ form.pre_diabetes.label }}
+               &emsp;
+               {{ form.gestational_diabetes }}
+               {{ form.gestational_diabetes.label }}
+
+               <br>
+               {{ form.submit }}
+            </div>
+            
+         </fieldset>
+      </form>
+      
+   </body>
+</html>

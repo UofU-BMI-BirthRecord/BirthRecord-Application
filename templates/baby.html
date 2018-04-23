@@ -4,7 +4,7 @@
    
       <h2 style = "text-align: center;">  </h2>
 
-      <form action = "http://localhost:5000/motherinfo/{{form.motherid}}" method = post>
+      <form action = "http://localhost:5000/babyresult" method = post>
          <fieldset>
             <legend>New Born Baby</legend>
             {{ form.hidden_tag() }}
@@ -34,6 +34,7 @@
                {{ form.labels['apgar10m_score_label'] }}
                {{ form.apgar10m_score_value }}
                <br>
+               {{ form.mother_id }}
 
                {{ form.submit }}
             </div>

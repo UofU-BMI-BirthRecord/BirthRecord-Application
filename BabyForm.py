@@ -9,6 +9,7 @@ import test3
 class BabyForm(Form):
     #values = {}
     #values['newborn_family_name_value'] = StringField()
+    codes = GetPatientInfo.getCODETABLE(page='baby')
 
     submit = SubmitField("Save and Next")
     newborn_family_name_value = StringField()
@@ -20,7 +21,7 @@ class BabyForm(Form):
     birth_weight_lbs_value = DecimalField()
     birth_weight_ozs_value = DecimalField()
 
-
+    mother_id = ''
 
     def preload(self, pid):
         codes = GetPatientInfo.getCODETABLE(page='baby')
@@ -70,6 +71,7 @@ class BabyForm(Form):
             self.birth_weight_ozs_value.data = vOzs
 
         self.motherid = GetPatientInfo.getMotherID(pid)
+        self.mother_id = '<input type="hidden" name="mother_id" value="%s">' %self.motherid
 
 def convertWeight(value, unit):
     unit = unit.lower()
