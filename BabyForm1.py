@@ -4,7 +4,7 @@ from wtforms import IntegerField, SubmitField, TextAreaField, SelectField, Strin
 from wtforms import validators, ValidationError
 
 import GetPatientInfo
-import WeightUtil
+from WeightUtil import *
 
 class BabyForm(Form):
     #values = {}
