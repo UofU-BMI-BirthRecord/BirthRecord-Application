@@ -96,8 +96,11 @@ def getAllRecentBabies(server=smart.server, targetnumber=1000, bornInDays=500):
 def getRecentBabies(bornInDays=10, server=smart.server):
     today = datetime.date.today()
     targetDay = today - datetime.timedelta(days=bornInDays)
-    search = p.Patient.where(struct={'birthdate': ">%s" % targetDay})
+    # default count per page is 10 and the maximum count is 50 to prevent system overload by the FHIR server.
+    # If there are more than 50 babies born, special treatment is need to read page by page.
+    search = p.Patient.where(struct={'birthdate': ">%s" % targetDay, '_count': '50', '_sort': '-birthdate'})
     patients = search.perform_resources(smart.server)
+    print(len(patients))
     return patients
 
 
