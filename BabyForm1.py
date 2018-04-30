@@ -1,12 +1,12 @@
 #from flask_wtf import Form
-from flask.ext.wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import IntegerField, SubmitField, TextAreaField, SelectField, StringField, TextField, DecimalField, HiddenField, BooleanField
 from wtforms import validators, ValidationError
 
 import GetPatientInfo
 from WeightUtil import *
 
-class BabyForm(Form):
+class BabyForm(FlaskForm):
     #values = {}
     #values['newborn_family_name_value'] = StringField()
     CODEFILE = "FHIR_resource_codes_1.txt"
@@ -52,7 +52,7 @@ class BabyForm(Form):
                 self.labels[code['name']] = code['desc']
             else:
                 values[code['name']] = datatype
-        
+
         self.newborn_family_name_value = StringField()
         self.newborn_first_name_value = StringField()
         self.apgar1m_score_value = IntegerField()
@@ -95,7 +95,3 @@ class BabyForm(Form):
         #self.motherid = GetPatientInfo.getMotherID(pid)
         #self.mother_id = '<input type="hidden" name="mother_id" value="%s">' %self.motherid
         self.mother_id.data = GetPatientInfo.getMotherID(pid)
-
-
-
-

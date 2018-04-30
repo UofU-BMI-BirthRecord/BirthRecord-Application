@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, flash, redirect, url_for,session
+from flask import Flask, render_template, request, flash, redirect, url_for,session, flash
+from flask_bootstrap import Bootstrap
 from SelectBabyForm import SelectBabyForm
 from BabyForm1 import BabyForm
 from MotherForm import MotherForm
@@ -8,6 +9,7 @@ import json
 import easygui
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 app.secret_key = 'development key'
 
 

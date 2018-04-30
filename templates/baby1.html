@@ -1,51 +1,130 @@
-<!doctype html>
-<html>
+{% extends "bootstrap/base.html" %}
+
+{% block title %}FHIR{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='icon-fhir-720.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='icon-fhir-720.ico') }}" type="image/x-icon">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/select">Select Baby</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+
+    {% block page_content %}
+    <style>
+    <meta charset="UTF-8">
+    <title>Baby Information</title>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      font-size: 18px;
+      text-align: center;
+      ;
+  }
+
+  #customers tr:nth-child(even){background-color: #f2f2f2; text-align: center;}
+
+  #customers tr:hover {background-color: #ddd; text-align: center;}
+
+  #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+  }
+  </style>
    <body>
-   
+
       <h2 style = "text-align: center;">  </h2>
 
       <form action = "http://localhost:5000/babyresult" method = post>
          <fieldset>
-            <legend>New Born Baby</legend>
+            <legend style = 'text-align: center'><b>Newborn Information</b></legend>
             {{ form.hidden_tag() }}
             {{ form.csrf_token }}
 
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+              <table id="customers"; align="center";>
+                <tr>
+                  <th>{{ form.newborn_family_name.label }}</th>
+                  <th>{{ form.newborn_first_name.label }}</th>
+                </tr>
+                <tr>
+                  <td>{{ form.newborn_family_name }}</td>
+                  <td>{{ form.newborn_first_name }}</td>
+                </tr>
+              </table>
+              <br>
+              <table id="customers"; align="center";>
+                <tr>
+                  <th>{{ form.birth_weight.label}}</th>
+                </tr>
+                <tr>
+                  <td>{{ form.birth_weight_grams}}</td>
+                  <td>{{ form.birth_weight_grams.label}}</td>
+                  <td>{{ form.birth_weight_lbs}}</td>
+                  <td>{{ form.birth_weight_lbs.label}}</td>
+                  <td>{{ form.birth_weight_ozs}}</td>
+                  <td>{{ form.birth_weight_ozs.label}}</td>
+              </table>
+              <br>
+              <table id="customers"; align="center";>
+                <tr>
+                  <th>{{ form.apgar1m_score.label }}</th>
+                  <th>{{ form.apgar5m_score.label }}</th>
+                  <th>{{ form.apgar10m_score.label }}</th>
+                </tr>
+                <tr>
+                  <td>{{ form.apgar1m_score }}</td>
+                  <td>{{ form.apgar5m_score }}</td>
+                  <td>{{ form.apgar10m_score }}</td>
+              </table>
+              <br>
+              <table id="customers"; align="center";>
+                <tr>
+                  <th>{{ form.mother_id.label }}</th>
+                </tr>
+                <tr>
+                  <td>{{ form.mother_id }}</td>
+                </tr>
+              </table>
 
-               {{ form.newborn_family_name.label }}
-               {{ form.newborn_family_name }}
-               <br>
-               {{ form.newborn_first_name.label }}
-               {{ form.newborn_first_name }}
-               <br>
-               {{ form.birth_weight.label}}
-               {{ form.birth_weight_grams}}
-               {{ form.birth_weight_grams.label}}
-               &emsp;
-               {{ form.birth_weight_lbs}}
-               {{ form.birth_weight_lbs.label}}
-               &emsp;
-               {{ form.birth_weight_ozs}}
-               {{ form.birth_weight_ozs.label}}
-               <br>
-               {{ form.apgar1m_score.label }}
-               {{ form.apgar1m_score }}
-               <br>
-               {{ form.apgar5m_score.label }}
-               {{ form.apgar5m_score }}
-               <br>
-               {{ form.apgar10m_score.label }}
-               {{ form.apgar10m_score }}
-               <br>
-               {{ form.mother_id.label }}
-
-               {{ form.mother_id }}
                <br>
                {{ form.submit }}
-            </div>
-            
+
+
+
+
          </fieldset>
       </form>
-      
+
    </body>
-</html>
+   {% endblock %}
+   </div>
+   {% endblock %}

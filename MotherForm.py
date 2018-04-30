@@ -1,5 +1,5 @@
 #from flask_wtf import Form
-from flask.ext.wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import IntegerField, SubmitField, TextAreaField, SelectField, StringField, TextField
 from wtforms import DecimalField, BooleanField, HiddenField
 from wtforms import validators, ValidationError
@@ -9,7 +9,7 @@ from WeightUtil import *
 import easygui
 import json
 
-class MotherForm(Form):
+class MotherForm(FlaskForm):
     #values = {}
     #values['newborn_family_name_value'] = StringField()
     CODEFILE = "FHIR_resource_codes_1.txt"
@@ -97,7 +97,7 @@ class MotherForm(Form):
             self.delivery_weight_grams.data = vGrams
             self.delivery_weight_lbs.data = vLbs
             self.delivery_weight_ozs.data = vOzs
-            
+
         if value1 != None and value2 != None:
             (vG, vL, vO) = weightDifference(self.pre_weight_grams.data, self.pre_weight_lbs.data, self.pre_weight_ozs.data,
                                             self.delivery_weight_grams.data, self.delivery_weight_lbs.data,
@@ -144,5 +144,3 @@ class MotherForm(Form):
 
         #self.motherid = GetPatientInfo.getMotherID(pid)
         #self.mother_id = '<input type="hidden" name="mother_id" value="%s">' %self.motherid
-
-

@@ -104,7 +104,7 @@ def getRecentBabies(bornInDays=10, server=smart.server):
     return patients
 
 
-CODEFILE = "FHIR_resource_codes.txt"
+CODEFILE = "FHIR_resource_codes_1.txt"
 def getCODETABLE(file=CODEFILE, page=''):
     codeTable = {}
     with open(file) as f:
