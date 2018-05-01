@@ -1,6 +1,6 @@
 {% extends "bootstrap/base.html" %}
 
-{% block title %}FHIR{% endblock %}
+{% block title %}Newborn Data{% endblock %}
 
 {% block head %}
 {{ super() }}
@@ -55,9 +55,12 @@
   #customers th {
       padding-top: 12px;
       padding-bottom: 12px;
-      text-align: left;
       background-color: #4CAF50;
       color: white;
+  }
+
+.center {
+    margin: auto;
   }
   </style>
    <body>
@@ -74,27 +77,22 @@
                 <tr>
                   <th>{{ form.newborn_family_name.label }}</th>
                   <th>{{ form.newborn_first_name.label }}</th>
+                  <th>{{ form.mother_id.label }}</th>
                 </tr>
                 <tr>
                   <td>{{ form.newborn_family_name }}</td>
                   <td>{{ form.newborn_first_name }}</td>
-                </tr>
-              </table>
-              <br>
-              <table id="customers"; align="center";>
-                <tr>
-                  <th>{{ form.birth_weight.label}}</th>
+                  <td>{{ form.mother_id }}</td>
                 </tr>
                 <tr>
-                  <td>{{ form.birth_weight_grams}}</td>
-                  <td>{{ form.birth_weight_grams.label}}</td>
-                  <td>{{ form.birth_weight_lbs}}</td>
-                  <td>{{ form.birth_weight_lbs.label}}</td>
-                  <td>{{ form.birth_weight_ozs}}</td>
-                  <td>{{ form.birth_weight_ozs.label}}</td>
-              </table>
-              <br>
-              <table id="customers"; align="center";>
+                  <th>Birth Weight (g)</th>
+                  <th colspan="2"; text-align="center">Birth Weight (lbs & oz)</th>
+                </tr>
+                <tr>
+                  <td>{{ form.birth_weight_grams}}g</td>
+                  <td>{{ form.birth_weight_lbs}}lbs</td>
+                  <td>{{ form.birth_weight_ozs}}oz</td>
+                </tr>
                 <tr>
                   <th>{{ form.apgar1m_score.label }}</th>
                   <th>{{ form.apgar5m_score.label }}</th>
@@ -106,17 +104,11 @@
                   <td>{{ form.apgar10m_score }}</td>
               </table>
               <br>
-              <table id="customers"; align="center";>
-                <tr>
-                  <th>{{ form.mother_id.label }}</th>
-                </tr>
-                <tr>
-                  <td>{{ form.mother_id }}</td>
-                </tr>
-              </table>
 
                <br>
+               <div align = "center">
                {{ form.submit }}
+               </div>
 
 
 
