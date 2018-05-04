@@ -9,7 +9,7 @@ def convertWeight(value, unit):
     else:
         print("invalid weight unit: " % unit)
         vGrams = 0
-    vOzs = vGrams / 453.6 * 16
+    vOzs = int(vGrams / 453.6 * 16 + 0.5)
     vLbs = int(vOzs / 16)
     vOzs = int(vOzs) - vLbs * 16
     return (vGrams, vLbs, vOzs)
@@ -48,9 +48,9 @@ def weightDifference(vG1, vL1, vO1, vG2, vL2, vO2):
     :param vO2:
     :return:
     """
-    vG = vG1 - vG2
-    vL = vL1 - vL2
-    vO = vO1 - vO2
+    vG = vG2 - vG1
+    vL = vL2 - vL1
+    vO = vO2 - vO1
     return (vG, vL, vO)
 
 def validWeight(vG, vL, vO):
