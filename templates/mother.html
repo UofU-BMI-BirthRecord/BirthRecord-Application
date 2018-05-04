@@ -1,78 +1,146 @@
-<!doctype html>
-<html>
-   <body>
-   
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Mother Data{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='icon-fhir-720.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='icon-fhir-720.ico') }}" type="image/x-icon">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/select">Select Baby</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+
+    {% block page_content %}
+    <style>
+    <meta charset="UTF-8">
+    <title>Mother Information</title>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      font-size: 18px;
+      text-align: left;
+  }
+
+  #customers tr:nth-child(even){background-color: #f2f2f2; text-align: center;}
+
+  #customers tr:hover {background-color: #ddd; text-align: center;}
+
+  #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+  }
+
+.center {
+    margin: auto;
+  }
+  </style>
+  <body>
+
       <h2 style = "text-align: center;">  </h2>
 
       <form action = "http://localhost:5000/motherresult" method = post>
          <fieldset>
-            <legend>Mother</legend>
+            <legend style = 'text-align: center'><b>Mother Information</b></legend>
             {{ form.hidden_tag() }}
-            
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
 
-               {{ form.mother_family_name.label }}
-               {{ form.mother_family_name }}
-               <br>
-               {{ form.mother_first_name.label }}
-               {{ form.mother_first_name }}
-               <br>
-               {{ form.pre_weight.label}}
-               {{ form.pre_weight_grams}}
-               {{ form.pre_weight_grams.label}}
-               &emsp;
-               {{ form.pre_weight_lbs}}
-               {{ form.pre_weight_lbs.label}}
-               &emsp;
-               {{ form.pre_weight_ozs}}
-               {{ form.pre_weight_ozs.label}}
-               <br>
-               {{ form.delivery_weight.label}}
-               {{ form.delivery_weight_grams}}
-               {{ form.delivery_weight_grams.label}}
-               &emsp;
-               {{ form.delivery_weight_lbs}}
-               {{ form.delivery_weight_lbs.label}}
-               &emsp;
-               {{ form.delivery_weight_ozs}}
-               {{ form.delivery_weight_ozs.label}}
-               <br>
-               {{ form.weight_gain.label}}
-               {{ form.weight_gain_grams}}
-               {{ form.weight_gain_grams.label}}
-               &emsp;
-               {{ form.weight_gain_lbs}}
-               {{ form.weight_gain_lbs.label}}
-               &emsp;
-               {{ form.weight_gain_ozs}}
-               {{ form.weight_gain_ozs.label}}
-               <br>
-               Hypertension
-
-               {{ form.pre_hypertension}}
-               {{ form.pre_hypertension.label}}
-               &emsp;
-               {{ form.gestational_hypertension}}
-               {{ form.gestational_hypertension.label}}
-               &emsp;
-               {{ form.eclampsia }}
-               {{ form.eclampsia.label }}
-
-               <br>
-               Diabetes
-
-               {{ form.pre_diabetes }}
-               {{ form.pre_diabetes.label }}
-               &emsp;
-               {{ form.gestational_diabetes }}
-               {{ form.gestational_diabetes.label }}
-
-               <br>
+            <table id="customers"; align="center";>
+              <tr>
+                <th>{{ form.mother_family_name.label }}</th>
+                <th>{{ form.mother_first_name.label }}</th>
+                <th> </th>
+              </tr>
+              <tr>
+                <td>{{ form.mother_family_name }}</td>
+                <td>{{ form.mother_first_name }}</td>
+                <td> </td>
+              </tr>
+              <tr>
+                <th>Pre-Pregnancy Weight (g)</th>
+                <th colspan="2"; text-align="center">Pre-Pregnancy Weight (lbs & oz)</th>
+              </tr>
+              <tr>
+                <td>{{ form.pre_weight_grams}}g</td>
+                <td>{{ form.pre_weight_lbs}}lbs</td>
+                <td>{{ form.pre_weight_ozs}}oz</td>
+              </tr>
+              <tr>
+                <th>Delivery Weight (g)</th>
+                <th colspan="2"; text-align="center">Delivery Weight (lbs & oz)</th>
+              </tr>
+              <tr>
+                <td>{{ form.delivery_weight_grams}}g</td>
+                <td>{{ form.delivery_weight_lbs}}lbs</td>
+                <td>{{ form.delivery_weight_ozs}}oz</td>
+              </tr>
+              <tr>
+                <th>Weight Gained (g)</th>
+                <th colspan="2"; text-align="center">Weight Gained (lbs & oz)</th>
+              </tr>
+              <tr>
+                <td>{{ form.weight_gain_grams}}g</td>
+                <td>{{ form.weight_gain_lbs}}lbs</td>
+                <td>{{ form.weight_gain_ozs}}oz</td>
+              </tr>
+              <tr>
+                <th colspan="3"; text-align="center">Risk Factors</th>
+              </tr>
+              <tr>
+                <td colspan="3"; text-align="left">Hypertension</td>
+              </tr>
+              <tr>
+                <td>Pre-existing:&emsp;{{ form.pre_hypertension}}</td>
+                <td>Gestational:&emsp;{{ form.gestational_hypertension}}</td>
+                <td>Eclampsia:&emsp;{{ form.eclampsia }}</td>
+              </tr>
+              <tr>
+                <td colspan="3"; text-align="left">Diabetes</td>
+              </tr>
+              <tr>
+                <td>Pre-existing:&emsp;{{ form.pre_diabetes }}</td>
+                <td>Gestational:&emsp;{{ form.gestational_diabetes }}</td>
+                <td>
+              </tr>
+             </table>
+             <br>
+             <br>
+             <div align = "center">
                {{ form.submit }}
             </div>
-            
+            <br>
+            <br>
+
          </fieldset>
       </form>
-      
-   </body>
-</html>
+    </body>
+    {% endblock %}
+    </div>
+    {% endblock %}

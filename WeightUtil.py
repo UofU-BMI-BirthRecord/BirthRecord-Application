@@ -48,9 +48,9 @@ def weightDifference(vG1, vL1, vO1, vG2, vL2, vO2):
     :param vO2:
     :return:
     """
-    vG = vG2 - vG1
-    vL = vL2 - vL1
-    vO = vO2 - vO1
+    vG = vG1 - vG2
+    vL = vL1 - vL2
+    vO = vO1 - vO2
     return (vG, vL, vO)
 
 def validWeight(vG, vL, vO):

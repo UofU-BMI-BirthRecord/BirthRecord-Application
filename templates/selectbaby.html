@@ -1,6 +1,6 @@
 {% extends "bootstrap/base.html" %}
 
-{% block title %}FHIR{% endblock %}
+{% block title %}Baby Search{% endblock %}
 
 {% block head %}
 {{ super() }}
@@ -49,7 +49,8 @@
              <fieldset>
                 <legend>Select New Born Babies</legend>
                 {{ form.hidden_tag() }}
-
+                <br>
+                <br>
                 <div style = font-size:20px; font-weight:bold; margin-left:150px;>
 
                    {{ form.bornWithDays.label }}<br>
@@ -57,7 +58,7 @@
                    {{ form.bornWithDays }} <br>
                    <b>Days</b>
                    <br>
-             				{{ form.submit }}             		
+             				{{ form.submit }}
                 </div>
 
              </fieldset>
