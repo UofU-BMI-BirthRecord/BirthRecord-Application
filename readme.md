@@ -1,12 +1,17 @@
 ## questions
 should I remove the .pyc compiled files or leave them in
+
 are things in pycache different than main folder
+
 where did these get run or tested 
+
 what are the template/ html files for
+
 which fhir resource codes file is master
 
 ## actions
 remove static/ it only has some images in there
+
 in app3.py select baby, babyform1, and motherform are all reference
 
 most of these versions are the same age
