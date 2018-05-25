@@ -1,18 +1,20 @@
 ## questions
-should I remove the .pyc compiled files or leave them in
+should I remove the .pyc compiled files or leave them in-remove them, not needed
 
-are things in pycache different than main folder
+are things in pycache different than main folder-delete this folder, not needed
 
-where did these get run or tested 
+where did these get run or tested-met with jianyin, see wiki for answered queswtions
 
-what are the template/ html files for
+what are the template/ html files for-rendering the pages, keep but still needs cleaning
 
-which fhir resource codes file is master
+which fhir resource codes file is master-deleted redundant files
 
 ## actions
-remove static/ it only has some images in there
+remove static/ it only has some images in there-done
 
-in app3.py select baby, babyform1, and motherform are all reference
+
+-redundant versions were deleted
+
 
 most of these versions are the same age
 ## babyform versions (4)
